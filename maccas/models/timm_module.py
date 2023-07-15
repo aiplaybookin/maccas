@@ -101,7 +101,7 @@ class TIMMLitModule(LightningModule):
         # remember to always return loss from `training_step()` or else backpropagation will fail!
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def on_train_epoch_end(self, outputs: List[Any]):
+    def on_train_epoch_end(self):
         # `outputs` is a list of dicts returned from `training_step()`
         pass
 
@@ -138,7 +138,7 @@ class TIMMLitModule(LightningModule):
 
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def test_epoch_end(self, outputs: List[Any]):
+    def on_test_epoch_end(self):
         pass
 
     def configure_optimizers(self):
