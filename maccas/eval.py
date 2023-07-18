@@ -32,23 +32,23 @@ def evaluate(cfg: DictConfig) -> Tuple[dict, dict]:
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: LightningModule = hydra.utils.instantiate(cfg.model)
 
-    log.info("Instantiating loggers...")
-    logger: List[Logger] = utils.instantiate_loggers(cfg.get("logger"))
+    #log.info("Instantiating loggers...")
+    #logger: List[Logger] = utils.instantiate_loggers(cfg.get("logger"))
 
     log.info(f"Instantiating trainer <{cfg.trainer._target_}>")
-    trainer: Trainer = hydra.utils.instantiate(cfg.trainer, logger=logger)
+    trainer: Trainer = hydra.utils.instantiate(cfg.trainer) #, logger=logger
 
     object_dict = {
         "cfg": cfg,
         "datamodule": datamodule,
         "model": model,
-        "logger": logger,
+        #"logger": logger,
         "trainer": trainer,
     }
 
-    if logger:
-        log.info("Logging hyperparameters!")
-        utils.log_hyperparameters(object_dict)
+    #if logger:
+    #    log.info("Logging hyperparameters!")
+    #    utils.log_hyperparameters(object_dict)
 
     log.info("Starting testing!")
     trainer.test(model=model, datamodule=datamodule, ckpt_path=cfg.ckpt_path)
@@ -65,7 +65,7 @@ def evaluate(cfg: DictConfig) -> Tuple[dict, dict]:
 def main(cfg: DictConfig) -> None:
     # apply extra utilities
     # (e.g. ask for tags if none are provided in cfg, print cfg tree, etc.)
-    utils.extras(cfg)
+    #utils.extras(cfg)
 
     evaluate(cfg)
 

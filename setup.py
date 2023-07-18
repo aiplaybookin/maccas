@@ -15,7 +15,7 @@ setup(
     entry_points={
         "console_scripts": [
             "maccas_train = maccas.train:main",
-    #        "maccas_eval = maccas.eval:main",
+            "maccas_eval = maccas.eval:main",
         ]
     },
 )

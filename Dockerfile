@@ -9,4 +9,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt \
 
 VOLUME /workspace/outputs
 
-CMD maccas_train
+CMD ["python"]

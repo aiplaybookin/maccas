@@ -32,3 +32,6 @@ rich            # beautiful text formatting in terminal
 pytest          # tests
 black
 # sh            # for running bash commands in some tests (linux/macos only)
+
+# --------- Model ---------- #
+timm==0.9.2
