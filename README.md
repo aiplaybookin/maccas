@@ -47,7 +47,8 @@ Reference repo https://github.com/ashleve/lightning-hydra-template
 ## To load model from checkpoint and run on validation dataset
 Change your pathname in below command
 ```maccas_eval 'ckpt_path="./outputs/2023-07-18/05-55-31/lightning_logs/version_0/checkpoints/epoch=0-step=352.ckpt"'```
-<image>
+
+![Evaluation execution](images/eval.png)
 
 ## Create a Docker file
 ```docker build -t pylight .```
@@ -62,12 +63,7 @@ docker run -v /outputs:/workspace/outputs pylight
 While running training, to find the volumes...
 
 Get container id
+
 ```docker ps```
 
 ```docker inspect 90bbb7f7313b```
-
-
-## To run Eval
-
-## To use docker run to train and eval the model
-
